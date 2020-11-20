@@ -1,12 +1,9 @@
-package com.example.myapplication;
-//학습화면 javacode
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.javaplanet;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-import android.os.Bundle;
 import com.google.android.youtube.player.YouTubeApiServiceUtil;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -14,16 +11,16 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
 
-public class MainActivity extends YouTubeBaseActivity implements
-        YouTubePlayer.OnInitializedListener {
+public class Learning_class_obj extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
+
     private static final int RECOVERY_DIALOG_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_learning_cls_obj);
         Log.d("youtube Test",
-                "사용가능여부:"+YouTubeApiServiceUtil.isYouTubeApiServiceAvailable(this)); //SUCCSESS
+                "사용가능여부:" + YouTubeApiServiceUtil.isYouTubeApiServiceAvailable(this)); //SUCCSESS
 
 
         //YouTubePlayer를 초기화
@@ -33,21 +30,21 @@ public class MainActivity extends YouTubeBaseActivity implements
         //YouTubePlayerView youTubeView = (YouTubePlayerView) findViewById(R.id.youtube_view);
         //youTubeView.initialize(DeveloperKey.DEVELOPER_KEY, this);
 
-        getYouTubePlayerProvider().initialize(DeveloperKey.DEVELOPER_KEY,this);
+        getYouTubePlayerProvider().initialize(DeveloperKey.DEVELOPER_KEY, this);
 
     }
 
     /**
      * 플레이어가 초기화될 때 호출됩니다.
      * 매개변수
-     *
+     * <p>
      * provider YouTubePlayer를 초기화화는 데 사용된 제공자입니다.
      * player 제공자에서 동영상 재생을 제어하는 데 사용할 수 있는 YouTubePlayer입니다
      * wasRestored
-     *    YouTubePlayerView 또는 YouTubePlayerFragment가 상태를 복원하는 과정의 일부로서
-     *    플레이어가 이전에 저장된 상태에서 복원되었는지 여부입니다.
-     *    true는 일반적으로 사용자가 재생이 다시 시작될 거라고 예상하는 지점에서 재생을 다시 시작하고
-     *    새 동영상이 로드되지 않아야 함을 나타냅니다.
+     * YouTubePlayerView 또는 YouTubePlayerFragment가 상태를 복원하는 과정의 일부로서
+     * 플레이어가 이전에 저장된 상태에서 복원되었는지 여부입니다.
+     * true는 일반적으로 사용자가 재생이 다시 시작될 거라고 예상하는 지점에서 재생을 다시 시작하고
+     * 새 동영상이 로드되지 않아야 함을 나타냅니다.
      */
 
     @Override
@@ -87,6 +84,7 @@ public class MainActivity extends YouTubeBaseActivity implements
             // Retry initialization if user performed a recovery action
             getYouTubePlayerProvider().initialize(DeveloperKey.DEVELOPER_KEY, this);
         }
-    }
 
+
+    }
 }
